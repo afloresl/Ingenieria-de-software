@@ -6,7 +6,7 @@
     <class name="com.mycompany.mapita.User1" table="user1" schema="public" optimistic-lock="version">
         <id name="iduser" type="int">
             <column name="iduser" />
-            <generator class="assigned" />
+            <generator class="identity" />
         </id>
         <property name="name" type="string">
             <column name="name" not-null="true" />
