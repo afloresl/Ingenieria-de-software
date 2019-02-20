@@ -35,15 +35,40 @@ public abstract class AbstractDAO<T> {
             if(tx != null){
                 tx.rollback();
             }
-            e.printStackTrace();
         }finally{
             session.close();
         }
     }
     protected void update(T obj){
         Session session = this.sessionFactory.getCurrentSession();
+        Transaction tx = null;
+        try{
+            tx = session.beginTransaction();
+            session.update(obj);
+            tx.commit();
+        }catch(HibernateException e){
+            if(tx != null){
+                tx.rollback();
+            }
+        }finally{
+            session.close();
+        }
     }
-    protected void delete(T obj){}
+    protected void delete(T obj){
+        Session session = this.sessionFactory.getCurrentSession();
+        Transaction tx = null;
+        try{
+            tx = session.beginTransaction();
+            session.delete(obj);
+            tx.commit();
+        }catch(HibernateException e){
+            if(tx != null){
+                tx.rollback();
+            }
+        }finally{
+            session.close();
+        }
+    }
     protected T find(Class clazz, int id){
         T obj = null;
         Session session = this.sessionFactory.getCurrentSession();
@@ -61,7 +86,7 @@ public abstract class AbstractDAO<T> {
         }
         return obj;
     }
-    protected List<T> findAll(Class clazz, int id){
+    protected List<T> findAll(Class clazz){
     List<T> obj = null;
         Session session = this.sessionFactory.getCurrentSession();
         Transaction tx = null;
