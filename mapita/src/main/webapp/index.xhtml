@@ -17,6 +17,8 @@
                 <p:password id="password" value="#{agregaUsuario.password}" placeholder="Contrasenia"/><br/>
                 <p:calendar id="birthday" value="#{agregaUsuario.birthday}" placeholder="Fecha de nacimiento"/><br/>
                 <p:commandButton action="#{agregaUsuario.agregaUsuario()}" value="Registrame"/><br/>
+                <p:inputText id="iduser" value="#{eliminaUsuario.iduser}" placeholder="id a eliminar"/><br/>
+                <p:commandButton action="#{eliminaUsuario.eliminaUsuario()}" value="Eliminar"/><br/>
             </h:form>
         </h:body>
     </f:view>

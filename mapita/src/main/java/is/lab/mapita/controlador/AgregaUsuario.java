@@ -21,6 +21,8 @@ public class AgregaUsuario {
     private String email;
     private String password;
     private Date birthday;
+    
+    User1DAO udb;
 
     public String getName() {
         return name;
@@ -62,7 +64,7 @@ public class AgregaUsuario {
         u.setEmail(email);
         u.setPassword(password);
         u.setBirthday(birthday);
-        User1DAO udb = new User1DAO();
+        udb = new User1DAO();
         udb.save(u);
     }
 
