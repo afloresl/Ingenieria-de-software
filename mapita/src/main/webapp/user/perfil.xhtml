@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+    <f:view>
+        <h:head>
+            <title>Inicio</title>
+            <h2>
+                Actualiza Usuario
+            </h2>
+            <h:form>
+                <p:inputText id="iduser" value="#{actualizaUsuario.iduser}" placeholder="ID Usuario" /> <br/>
+                <p:inputText id="name" value="#{actualizaUsuario.name}" placeholder="Nombre"/> <br/>
+                <p:inputText id="email" value="#{actualizaUsuario.email}" placeholder="Correo"/> <br/>
+                <p:password id="password" value="#{actualizaUsuario.password}" placeholder="Contraseña"/> <br/>
+                <p:calendar id="birthday" value="#{actualizaUsuario.birthday}" placeholder="Fecha de nacimiento"/> <br/>
+                <p:commandButton action="#{actualizaUsuario.actualizarUsuario()}" value="Actualizar" ajax="false"/> 
+            </h:form>
+            <br/>
+            <h2>
+                Elimina Usuario
+            </h2>
+            <h:form>
+                <p:inputText id="id" value="#{eliminaUsuario.iduser}" placeholder="Ingresa tu id"/> <br/>
+                <p:commandButton action="#{eliminaUsuario.eliminaUsuario()}" value="Eliminar" ajax="false"/> 
+            </h:form>
+            <h2>
+                Agrega Marcador
+            </h2>
+            <h:form>     
+                <p:inputText id="descripcion" value="#{agregaMarcador.descripcion}" placeholder="Descripcion"/> <br/>
+                <p:inputNumber id="longitud" value="#{agregaMarcador.longitud}" placeholder="Longitud"/> <br/>
+                <p:inputNumber id="latitud" value="#{agregaMarcador.latitud}" placeholder="Latitud"/> <br/>
+                <p:commandButton action="#{agregaMarcador.agregaMarcador()}" value="Agregar" ajax="false" />
+                
+            </h:form>
+            <br/>
+            <h2>
+                Actualizar Marcador
+            </h2>
+            <h:form>
+                <p:inputText id="descripcion" value="#{actualizaMarcador.descripcion}" placeholder="descripcion"/> <br/>
+                <p:inputNumber id="longitud" value="#{actualizaMarcador.longitud}" placeholder="longitud"/> <br/>
+                <p:inputNumber id="latitud" value="#{actualizaMarcador.latitud}" placeholder="latitud"/> <br/>
+                
+                <p:commandButton action="#{actualizaMarcador.actualizaMarcador()}" value="Actualizar" ajax="false"/> 
+            </h:form>
+             <h2>
+                Elimina Marcador
+            </h2>
+            <h:form>
+                <p:inputNumber id="idmarcador" value="#{eliminaMarcador.idmarcador}" placeholder="Ingresa el id marcador"/><br/>
+                <p:commandButton action="#{eliminaMarcador.eliminaMarcador()}" value="Eliminar" ajax="false" /><br/>
+            </h:form> 
+            <br/>
+            <p:commandButton id="cerrarsesion" action="#{controladorSesion.logout()}" value="Cerrar Sesión"/>
+        </h:head>
+        <h:body>
+        </h:body>
+    </f:view>
+</html>

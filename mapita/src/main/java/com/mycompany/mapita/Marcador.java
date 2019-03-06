@@ -52,10 +52,6 @@ public class Marcador  implements java.io.Serializable {
     public void setLongitud(double longitud) {
         this.longitud = longitud;
     }
-
-
-
-
 }
 
 

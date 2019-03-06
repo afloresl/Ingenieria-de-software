@@ -5,22 +5,52 @@
       xmlns:f="http://java.sun.com/jsf/core"
       xmlns:ui="http://java.sun.com/jsf/facelets"
       xmlns:p="http://primefaces.org/ui">
-    <f:view>
+     <f:view>
         <h:head>
             <title>Inicio</title>
             <h:outputStylesheet name="css/estilos.css"/>
         </h:head>
         <h:body>
-            <h:form> 
-                <p:inputText id="name" value="#{agregaUsuario.name}" placeholder="Nombre"/><br/>
-                <p:inputText id="email" value="#{agregaUsuario.email}" placeholder="Correo"/><br/>
-                <p:password id="password" value="#{agregaUsuario.password}" placeholder="Contrasenia"/><br/>
-                <p:calendar id="birthday" value="#{agregaUsuario.birthday}" placeholder="Fecha de nacimiento"/><br/>
-                <p:commandButton action="#{agregaUsuario.agregaUsuario()}" value="Registrame"/><br/>
-                <p:inputText id="iduser" value="#{eliminaUsuario.iduser}" placeholder="id a eliminar"/><br/>
-                <p:commandButton action="#{eliminaUsuario.eliminaUsuario()}" value="Eliminar"/><br/>
-            </h:form>
+            <header>
+                <h1>Mapita</h1>
+                <h:form id="busqueda">
+                    <p:inputText type="search " value="#{buscaPorNombre.name}"/>
+                    <p:commandButton action="#{buscaPorNombre.buscaPorNombre()}" value="BuscaPorNombre"/>
+                </h:form>
+            </header>
+            <main>
+                
+                <aside>
+                    <h2>
+                        Registrate
+                    </h2>
+                    <h:form>
+                        <p:inputText id="nombre" value="#{agregaUsuario.name}" placeholder="Nombre"/> <br/>
+                        <p:inputText id="correo" value="#{agregaUsuario.email}" placeholder="Correo"/> <br/>
+                        <p:password id="constrasenia" value="#{agregaUsuario.password}" placeholder="Contrasenia"/> <br/>
+                        <p:calendar id="fechanacimiento" value="#{agregaUsuario.birthday}" placeholder="Fecha de nacimiento"/> <br/>
+                        <p:commandButton action="#{agregaUsuario.agregaUsuario()}" value="Registrame" ajax="false" />
+                        
+                    </h:form>
+                    <h2>
+                        Iniciar Sesión
+                    </h2>
+                    <h:form>
+                        <p:inputText id="correo" value="#{controladorSesion.correo}" placeholder="Correo"/> <br/>
+                        <p:password id="constrasenia" value="#{controladorSesion.contrasenia}" placeholder="Contrasenia"/> <br/>
+                        <p:commandButton action="#{controladorSesion.login()}" value="Iniciar Sesión" ajax="false"/> 
+                    </h:form>
+                </aside>
+                <div class="row">
+                <div class="column">
+                    <img src="resources/mapa.png" alt="Mapa" width="897" height="550"> </img>
+                </div>
+            </div>
+            </main>
+
         </h:body>
     </f:view>
+                
+    
 </html>
 
